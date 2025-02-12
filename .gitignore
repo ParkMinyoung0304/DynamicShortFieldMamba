@@ -1,0 +1,34 @@
+# 忽略数据集
+data/
+data/*
+dataset/
+
+# 忽略模型文件
+model_pth/
+model_pth/*
+*.pth
+*.h5
+*.ckpt
+
+# 忽略可视化输出
+visualizations/
+visualizations/*
+visual/
+
+# 忽略日志
+logs/
+*.log
+
+# 忽略 Python 编译文件
+*.pyc
+__pycache__/
+
+# 忽略 Jupyter Notebook 运行时文件
+.ipynb_checkpoints/
+
+# 忽略编译文件
+*.o
+*.so
+*.a
+*.out
+*.exe
