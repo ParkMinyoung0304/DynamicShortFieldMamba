@@ -1,15 +1,13 @@
-
 <div align="center">
-<h1> Soil Fusion Mamba: Soil Fusion Mamba Network for Multi-Modal Soil Segmentation </h1>
+<h1> Soma: Soil Mamba Network for Soil Profile Segmentation </h1>
 
-[Shaohua Zeng]<sup>1</sup>, [Zhihao Chen](https://924973292.github.io//)<sup>1</sup>
+[Shaohua Zeng]()<sup>1</sup> <sup>2</sup>, [Zhihao Chen]()<sup>1</sup> <sup>2</sup></sup>
 
-<sup>1</sup>  Robotics Institute, Carnegie Mellon University, USA  
-<sup>2</sup>  School of Future Technology, Dalian University of Technology, China
+<sup>1</sup>  School of Computer and Information Science, Chongqing Normal University, Chongqing, China  
+<sup>2</sup>  Chongqing Center of Engineering Technology Research on Digital Agricultural Service, Chongqing, China
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.04256-b31b1b.svg)](https://arxiv.org/abs/2404.04256) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![X](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg)](https://x.com/_akhaliq/status/1777272323504025769)
-
 
 </div>
 
@@ -20,8 +18,6 @@ This repository contains the code for our paper `Sigma: Siamese Mamba Network fo
 
 ![](figs/sigma.png)
 
-`Sigma`, as a lightweight and efficient method, reaches a balance between accuracy and speed. (Results below are calculated on [MFNet](https://github.com/haqishen/MFNet-pytorch) dataset)
-
 ![](figs/overall_flops.png)
 
 ## 💡Environment
@@ -30,8 +26,8 @@ We test our codebase with `PyTorch 1.13.1 + CUDA 11.7` as well as `PyTorch 2.2.1
 
 1. Create environment.
     ```shell
-    conda create -n sigma python=3.9
-    conda activate sigma
+    conda create -n soma python=3.9
+    conda activate soma
     ```
 
 2. Install all dependencies.
@@ -52,115 +48,118 @@ Install pytorch, cuda and cudnn, then install other dependencies via:
 
 ### Datasets
 
-1. We use Three datasets, including both Surface Soil and Soil Profile datasets:
+1. We use Two datasets, including both Surface Soil and Soil Profile datasets:
     - [Surface Soil](Data Privacy)
     - [Soil Profile](Data Privacy)
-    - [Mexican soil profile](https://data.mendeley.com/datasets/v9krcvzv27/1)
 
     Please refer to the original dataset websites for more details. You can directly download the processed RGB-Depth datasets from [DFormer](https://github.com/VCIP-RGBD/DFormer?tab=readme-ov-file), though you may need to make small modifications to the txt files.
 
 2. <u>We also provide the processed datasets (including RGB-Thermal and RGB-Depth) we use here: [Google Drive Link](https://drive.google.com/drive/folders/1GD4LYF208h9-mHJ_lxW11UM0TPlRmv0z?usp=drive_link).</u>
 
-3. If you are using your own datasets, please orgnize the dataset folder in the following structure:
-    ```shell
-    <datasets>
-    |-- <DatasetName1>
-        |-- <RGBFolder>
-            |-- <name1>.<ImageFormat>
-            |-- <name2>.<ImageFormat>
-            ...
-        |-- <ModalXFolder>
-            |-- <name1>.<ModalXFormat>
-            |-- <name2>.<ModalXFormat>
-            ...
-        |-- <LabelFolder>
-            |-- <name1>.<LabelFormat>
-            |-- <name2>.<LabelFormat>
-            ...
-        |-- train.txt
-        |-- test.txt
-    |-- <DatasetName2>
-    |-- ...
-    ```
-
-    `train.txt/test.txt` contains the names of items in training/testing set, e.g.:
+3. If you are using your own datasets, please organize the dataset folder in the following structure:  
 
     ```shell
-    <name1>
-    <name2>
-    ...
+    <data>
+    |-- cutting
+    |   |-- images
+    |   |   |-- <name1>.<ImageFormat>
+    |   |   |-- <name2>.<ImageFormat>
+    |   |   ...
+    |   |-- masks  # Grayscale segmentation masks
+    |       |-- <name1>.<LabelFormat>
+    |       |-- <name2>.<LabelFormat>
+    |       ...
+    |-- entire_img
+    |   |-- images
+    |   |   |-- <name1>.<ImageFormat>
+    |   |   |-- <name2>.<ImageFormat>
+    |   |   ...
+    |   |-- masks  # Grayscale segmentation masks
+    |       |-- <name1>.<LabelFormat>
+    |       |-- <name2>.<LabelFormat>
+    |       ...
+    |-- mix
+    |   |-- images
+    |   |   |-- <name1>.<ImageFormat>
+    |   |   |-- <name2>.<ImageFormat>
+    |   |   ...
+    |   |-- masks  # Grayscale segmentation masks
+    |       |-- <name1>.<LabelFormat>
+    |       |-- <name2>.<LabelFormat>
+    |       ...
     ```
 
+📌 **Note:**  
+- **All masks must be in grayscale format (single-channel).**  
+- **Recommended formats:** `.png`, `.jpg`, `.tif` for images, and `.png` or `.tif` for masks.  
+- **Ensure masks are properly labeled with distinct grayscale values representing different classes.**
 
 ## 📦Usage
 
-### Training
-1. Please download the pretrained [VMamba](https://github.com/MzeroMiko/VMamba) weights:
+### Training  
+1. This model requires a pre-trained ResNet checkpoint. Please download it from [ResNet](https://pytorch.org/vision/stable/models.html#id2).  
 
-    - [VMamba_Tiny](https://drive.google.com/file/d/1W0EFQHvX4Cl6krsAwzlR-VKqQxfWEdM8/view?usp=drive_link).
-    - [VMamba_Small](https://drive.google.com/file/d/1671QXJ-faiNX4cYUlXxf8kCpAjeA4Oah/view?usp=drive_link).
-    - [VMamba_Base](https://drive.google.com/file/d/1qdH-CQxyUFLq6hElxCANz19IoS-_Cm1L/view?usp=drive_link).
+    🔗 [Torchvision Official Pretrained Model](https://pytorch.org/vision/stable/models.html#id2)  
+   
+    📥 **Directly Download ResNet-50 Weight**：  
+    - [resnet50-11ad3fa6.pth](https://download.pytorch.org/models/resnet50-11ad3fa6.pth)  
 
-    <u> Please put them under `pretrained/vmamba/`. </u>
+    <u> Please put them under `model/short_range_vmamba_unet/`. </u>  
 
+2. **Start Training**  
+    Run the following command to start training:  
+    ```bash
+    python train_vmamba_cutting_pre_entire.py
+    ```
+    This script will launch the training process with default configurations.  
 
-2. Config setting.
+3. **Other Training Modes**  
+    If you want to experiment with different training approaches, you can run other training scripts in the repository.  
+    Example:  
+    ```bash
+    python train_vmamba_entire_pre_entire.py
+    ```
+    Modify the script parameters as needed to customize the training process.
 
-    Edit config file in the `configs` folder.    
-    Change C.backbone to `sigma_tiny` / `sigma_small` / `sigma_base` to use the three versions of Sigma. 
+4. Results will be saved in `logs` folder and `model_pth` folder.
 
-3. Run multi-GPU distributed training:
+5. Testing and Visualization  
 
-    ```shell
-    NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES="0,1,2,3" python -m torch.distributed.launch --nproc_per_node=4  --master_port 29502 train.py -p 29502 -d 0,1,2,3 -n "dataset_name"
+    After training the model, you can perform inference on test images and visualize the results using the provided script.  
+    
+    ### **Run Inference on Test Data**  
+    To test the trained model on the dataset, execute the following command:  
+    ```bash
+    python model/short_range_vmamba_unet/test.py
+    ```
+    
+    ### **IoU Evaluation for Each Class**  
+    The model also provides per-class IoU (Intersection over Union) evaluation to assess segmentation performance.
+    To compute IoU for each class, run:
+   ```bash
+   python model/short_range_vmamba_unet/test_iou.py
     ```
 
-    Here, `dataset_name=mfnet/pst/nyu/sun`, referring to the four datasets.
+    The visualization results will be automatically saved in the following folder:local_visualizations/
 
-4. You can also use single-GPU training:
-
-    ```shell
-    CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" torchrun -m --nproc_per_node=1 train.py -p 29501 -d 0 -n "dataset_name" 
-    ```
-5. Results will be saved in `log_final` folder.
-
-
-### Evaluation
-1. Run the evaluation by:
-
-    ```shell
-    CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" python eval.py -d="0" -n "dataset_name" -e="epoch_number" -p="visualize_savedir"
-    ```
-
-    Here, `dataset_name=mfnet/pst/nyu/sun`, referring to the four datasets.\
-    `epoch_number` refers to a number standing for the epoch number you want to evaluate with. You can also use a `.pth` checkpoint path directly for `epoch_number` to test for a specific weight.
-
-2. If you want to use multi GPUs please specify multiple Device IDs:
-
-    ```shell
-    CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" python eval.py -d="0,1,2,3,4,5,6,7" -n "dataset_name" -e="epoch_number" -p="visualize_savedir"
-    ```
-
-3. Results will be saved in `log_final` folder.
 
 ## 📈Results
 
-We provide our trained weights on the four datasets:
+We provide our result on the Soil Profile datasets:
 
 ### MFNet (5 categories)
-| Architecture | Backbone | mIOU | Weight |
+| Architecture | OA | mAcc | mIOU |
 |:---:|:---:|:---:|:---:|
-| Sigma | VMamba-T | 60.2% | [Sigma-T-MFNet](https://drive.google.com/file/d/1N9UU9G5K8qxKsZOuEzSLiCGXC5XCaMaU/view?usp=drive_link) |
-| Sigma | VMamba-S | 61.1% | [Sigma-S-MFNet](https://drive.google.com/file/d/1heHnyvDTSa2oYxAD5wcgpIY3OZ198Cr2/view?usp=drive_link) |
-| Sigma | VMamba-B | 61.3% | [Sigma-B-MFNet](https://drive.google.com/file/d/1an6pqLeEYHZZLOmfyY8A3ooKP8ZVMU93/view?usp=drive_link) |
+| Soma | 78.99 | 69.04% |60.22% |
 
 ## 🙏Acknowledgements
 
-Our dataloader codes are based on [CMX](https://github.com/huaaaliu/RGBX_Semantic_Segmentation). Our Mamba codes are adapted from [Mamba](https://github.com/state-spaces/mamba) 、 [VMamba](https://github.com/MzeroMiko/VMamba) and [Fusion Mamba](https://github.com/zifuwan/Sigma). We thank the authors for releasing their code!
+Our dataloader codes are based on [CMX](https://github.com/huaaaliu/RGBX_Semantic_Segmentation). Our Mamba codes are adapted from [Mamba](https://github.com/state-spaces/mamba) and [VMamba](https://github.com/MzeroMiko/VMamba). We thank the authors for releasing their code!
+We also appreciate [DFormer](https://github.com/VCIP-RGBD/DFormer?tab=readme-ov-file) for providing their processed RGB-Depth datasets.
 
 ## 📧Contact
 
-If you have any questions, please  contact at [zifuw@andrew.cmu.edu](mailto:zifuw@andrew.cmu.edu).
+If you have any questions, please  contact at [Zhihao Chen](2023210516060@stu.cqnu.edu.cn).
 
 ## 📌 BibTeX & Citation
 
