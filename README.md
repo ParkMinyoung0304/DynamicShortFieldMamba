@@ -16,7 +16,7 @@
 
 This repository contains the code for our paper `Sigma: Siamese Mamba Network for Multi-Modal Semantic Segmentation`. [[Paper](https://arxiv.org/abs/2404.04256)]
 
-![](figs/sigma.png)
+![](figs/soma.png)
 
 ![](figs/overall_flops.png)
 
