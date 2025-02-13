@@ -14,7 +14,7 @@
 
 ## 👀Introduction
 
-This repository contains the code for our paper `Sigma: Siamese Mamba Network for Multi-Modal Semantic Segmentation`. [[Paper](https://arxiv.org/abs/2404.04256)]
+This repository contains the code for our paper `Soma: Soil Mamba Network for Soil Profile Segmentation`. [[Paper](https://arxiv.org/abs/2404.04256)]
 
 ![](figs/soma.png)
 
@@ -52,11 +52,7 @@ Install pytorch, cuda and cudnn, then install other dependencies via:
     - [Surface Soil](Data Privacy)
     - [Soil Profile](Data Privacy)
 
-    Please refer to the original dataset websites for more details. You can directly download the processed RGB-Depth datasets from [DFormer](https://github.com/VCIP-RGBD/DFormer?tab=readme-ov-file), though you may need to make small modifications to the txt files.
-
-2. <u>We also provide the processed datasets (including RGB-Thermal and RGB-Depth) we use here: [Google Drive Link](https://drive.google.com/drive/folders/1GD4LYF208h9-mHJ_lxW11UM0TPlRmv0z?usp=drive_link).</u>
-
-3. If you are using your own datasets, please organize the dataset folder in the following structure:  
+2. If you are using your own datasets, please organize the dataset folder in the following structure:  
 
     ```shell
     <data>
