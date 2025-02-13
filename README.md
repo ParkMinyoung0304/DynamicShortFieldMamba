@@ -16,9 +16,17 @@
 
 This repository contains the code for our paper `Soma: Soil Mamba Network for Soil Profile Segmentation`. [[Paper](https://arxiv.org/abs/2404.04256)]
 
-![](figs/soma.png)
+![](figs/Soma.png)
 
-![](figs/overall_flops.png)
+![](figs/SESF.png)
+
+![](figs/DPE.png)
+
+![](figs/vertical_cutting.png)
+
+![](figs/model_comparison.png)
+
+![](figs/Ablation_experiment.png)
 
 ## 💡Environment
 
@@ -52,7 +60,7 @@ Install pytorch, cuda and cudnn, then install other dependencies via:
     - [Surface Soil](Data Privacy)
     - [Soil Profile](Data Privacy)
 
-2. If you are using your own datasets, please organize the dataset folder in the following structure:  
+2. If you are using your own datasets, please organize the dataset folder in the following structure:
 
     ```shell
     <data>
