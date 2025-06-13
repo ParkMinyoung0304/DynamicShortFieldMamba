@@ -1,5 +1,5 @@
 <div align="center">
-<h1> Soma: Soil Mamba Network for Soil Profile Segmentation </h1>
+<h1> Stratified layering for soil profile: Dynamic short field Mamba network </h1>
 
 [Shaohua Zeng]()<sup>1</sup> <sup>2</sup>, [Zhihao Chen]()<sup>1</sup> <sup>2</sup></sup>
 
