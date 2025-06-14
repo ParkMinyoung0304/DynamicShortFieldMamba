@@ -27,46 +27,55 @@ This repository contains the code for our paper
 
 ### 📌 Technical Overview
 
-- **Technical pipeline**  
-  ![](fig/Fig.1.Technical_implementation_route.png)
+- **Technical implementation route**  
+  ![](figs/Fig.1.Technical_implementation_route.png)
 
-- **Soil preprocessing**  
-  ![](fig/Fig.2.Soil_profile_preprocessing_and_vertical_sub-image_segmentation_process.png)
+- **Soil profile preprocessing(vertical sub-image segmentation process)**  
+  ![](figs/Fig.2.Soil_profile_preprocessing_and_vertical_sub-image_segmentation_process.png)
 
-- **Baseline VM-UNet**  
-  ![](fig/Fig.3.VM-UNet_network_proposed.png)
+- **Baseline VM-UNet network**  
+  ![](figs/Fig.3.VM-UNet_network_proposed.png)
 
 - **Network structure: DSFM**  
-  ![](fig/Fig.4.Overall_structure_of_DSFM.png)
+  ![](figs/Fig.4.Overall_structure_of_DSFM.png)
 
 - **Modules in DSFM:**  
-  - Similarity Encoder  
-    ![](fig/Fig.5.Similarity_Encoder_of_Short_Field_Module.png)  
-  - Dynamic Position Encoder  
-    ![](fig/Fig.6.Dynamic_Position_Encoder_Module.png)
+  - Similarity Encoder of Short Field Module(SESF)  
+    ![](figs/Fig.5.Similarity_Encoder_of_Short_Field_Module.png)  
+  - Dynamic Position Encoder Module(DPE) 
+    ![](figs/Fig.6.Dynamic_Position_Encoder_Module.png)
 
 ---
 
 ### 📊 Performance and Comparison
 
-- **VM-UNet Accuracy Comparison**  
-  ![](fig/Fig.7.Accuracy_comparison_of_VM-UNet_across_dataset_of_full-size_soil_profile_and_dataset_of_soil_profile_sub-images.png)
+- **Accuracy Comparison on Full-size Soil Profile Datasets vs Sub-image Soil Profile Datasets(VM-UNet)**  
+  ![](figs/Fig.7.Accuracy_comparison_of_VM-UNet_across_dataset_of_full-size_soil_profile_and_dataset_of_soil_profile_sub-images.png)
 
-- **DSFM Accuracy Across Sub-image Sizes**  
-  ![](fig/Fig.8.Accuracy_comparison_results_of_DSFM_network_under_different_soil_profile_sub-image_sizes.png)
+- **Accuracy Across Sub-image Sizes(DSFM)**  
+  ![](figs/Fig.8.Accuracy_comparison_results_of_DSFM_network_under_different_soil_profile_sub-image_sizes.png)
 
-- **DSFM Performance Under Different Parameters**  
-  ![](fig/Fig.9.Accuracy_variation_curves_of_DSFM_network_for_different_values_of_short_field_parameter_K.png)
+- **Accuracy Comparison under Different K Parameters (DSFM)**  
+  ![](figs/Fig.9.Accuracy_variation_curves_of_DSFM_network_for_different_values_of_short_field_parameter_K.png)
 
-- **Segmentation Comparison with Baselines**  
-  ![](fig/Fig.10.Segmentation_results_comparing_DSFM_network_with_mainstream_networks.png)
+- **Segmentation results comparing DSFM network with mainstream networks**  
+  ![](figs/Fig.10.Segmentation_results_comparing_DSFM_network_with_mainstream_networks.png)
+
+  *(a) Soil profile image. (b) Ground truth. (c) DSFM network. (d) Swin-Transformer. (e) Twins. (f) ViT. (g) ConvNeXt. (h) DeepLabV3. (i) SegFormer. (j) ResNeSt. (k) Fast-SCNN.)*
+
 
 - **Test Accuracy Curves**  
-  ![](fig/Fig.11.Test_accuracy_curves_of_DSFM_network_and_mainstream_segmentation_networks.png)  
-  ![](fig/Fig.12.Test_accuracy_curves_of_DSFM_network_ablation_experiments.png)
+  ![](figs/Fig.11.Test_accuracy_curves_of_DSFM_network_and_mainstream_segmentation_networks.png)  
 
-- **Ablation Results**  
-  ![](fig/Fig.13.Image_segmentation_results_of_the_ablation_experiments.png)
+
+- **Ablation Results**
+  ![](figs/Fig.13.Image_segmentation_results_of_the_ablation_experiments.png)
+
+  *(a) Soil profile. (b) Ground truth. (c) DSFM network. (d) VM-UNet + SESF. (e) VM-UNet + DPE. (f) VM-UNet.*
+
+- **Test Accuracy Curves**  
+  ![](figs/Fig.12.Test_accuracy_curves_of_DSFM_network_ablation_experiments.png)
+
 
 
 
@@ -193,15 +202,60 @@ Install pytorch, cuda and cudnn, then install other dependencies via:
 
 We provide our result on the Soil Profile datasets:
 
-### MFNet (5 categories)
-| Architecture | OA | mAcc | mIOU |
-|:---:|:---:|:---:|:---:|
-| Soma | 78.99 | 69.04% |60.22% |
+---
+
+### Table 1. Comparison table of mainstream algorithms
+
+| Method           | Backbone       | OA (%) | mAcc (%) | mIoU (%) |
+|------------------|----------------|--------|----------|----------|
+| Swin-Transformer | Swin-T         | 55.36  | 45.72    | 32.52    |
+| Twins            | Twins-SVT-S    | 72.26  | 65.63    | 51.73    |
+| ViT              | ViT-B          | 46.64  | 40.64    | 26.99    |
+| ConvNeXt         | ConvNeXt-T     | 59.78  | 50.85    | 36.82    |
+| DeepLabV3        | ResNet50       | 43.21  | 34.16    | 20.61    |
+| SegFormer        | MiT-B0         | 70.34  | 64.54    | 50.33    |
+| ResNeSt          | ResNeSt-101    | 58.04  | 48.96    | 34.15    |
+| Fast-SCNN        | Fast-SCNN      | 55.02  | 37.88    | 32.09    |
+| **Ours**         | VMamba-T       | **78.99<sup>a</sup>** | **69.04** | **60.22** |
+
+*a. The best experimental results are in bold.*
+
+---
+
+### Table 2. Accuracy and IoU comparison of DSFM and mainstream networks across soil layers
+
+| Method           | Layer 1      |Layer 1 | Layer 2       |Layer 2        |Layer 3       |Layer 3        | Layer 4       |Layer 4        | Layer 5       |Layer 5        |
+|------------------|--------------|--------|--------------|--------|--------------|--------|--------------|--------|--------------|--------|
+|                  | Acc(%)         | IoU(%)    | Acc(%)            | IoU(%)    | Acc(%)            | IoU(%)    | Acc(%)         | IoU(%)    | Acc(%)         | IoU(%)    |
+| Swin-Transformer | 40.4         | 38.9     | 55.6         | 44.1     | 68.7         | 40.8     | 61.6         | 36.6     | 2.1          | 2.1    |
+| Twins            | **88.6<sup>1</sup>**     | **72.7<sup>2</sup>** | 71.2         | **56.9<sup>2</sup>** | 68.9         | **53.6<sup>2</sup>** | **77.8<sup>1</sup>**     | **57.8<sup>2</sup>** | **21.3<sup>2</sup>**     | **21.1<sup>2</sup>** |
+| ViT              | 51.9         | 43.3     | 29.5         | 23.8     | 62.7         | 30.9     | 52.4         | 31.4     | 6.6          | 5.5    |
+| ConvNeXt         | 64.9         | 53.2     | 59.0         | 42.8     | 62.8         | 41.0     | 62.2         | 42.5     | 5.1          | 4.2    |
+| DeepLabV3        | 50.3         | 42.9     | 23.7         | 19.3     | **89.5<sup>1</sup>**     | 34.2     | 5.9          | 5.7      | 0.9          | 0.9    |
+| SegFormer        | 74.8         | 67.1     | 72.7         | 55.3     | 66.2         | 50.3     | **75.6<sup>2</sup>**     | 53.3     | **33.3<sup>1</sup>**     | **25.6<sup>1</sup>** |
+| ResNeSt-101      | 84.1         | 61.7     | 37.8         | 33.2     | **88.1<sup>2</sup>**     | 43.4     | 14.9         | 13.5     | 19.8         | 14.1   |
+| Fast-SCNN        | 47.6         | 42.8     | **82.9<sup>1</sup>**     | 42.5     | 44.7         | 27.4     | 13.8         | 12.2     | 0.0          | 0.0    |
+| **Ours**         | **86.0<sup>2</sup>**     | **78.2<sup>1</sup>** | **81.1<sup>2</sup>**     | **71.7<sup>1</sup>** | 81.7         | **68.2<sup>1</sup>** | 73.8         | **66.1<sup>1</sup>** | 22.6         | 16.9   |
+
+
+*a. The best and second-best results for each layer are highlighted in 1 and 2.*
+
+---
+
+### Table 3. Comparison table of the ablation experiments
+
+| VM-UNet | SESF | DPE | OA (%) | mIoU (%) |
+|--------|------|-----|--------|----------|
+| ✓      | ✗    | ✗   | 72.01  | 49.76    |
+| ✓      | ✓    | ✗   | 76.53  | 55.57    |
+| ✓      | ✗    | ✓   | 72.92  | 50.61    |
+| ✓      | ✓    | ✓   | **78.99<sup>a</sup>** | **60.22** |
+
+*a. The best experimental results are in bold.*
 
 ## 🙏Acknowledgements
 
-Our dataloader codes are based on [CMX](https://github.com/huaaaliu/RGBX_Semantic_Segmentation). Our Mamba codes are adapted from [Mamba](https://github.com/state-spaces/mamba) and [VMamba](https://github.com/MzeroMiko/VMamba). We thank the authors for releasing their code!
-We also appreciate [DFormer](https://github.com/VCIP-RGBD/DFormer?tab=readme-ov-file) for providing their processed RGB-Depth datasets.
+Our Mamba codes are adapted from [Mamba](https://github.com/state-spaces/mamba) and [VMamba](https://github.com/MzeroMiko/VMamba). We thank the authors for releasing their code!
 
 ## 📧Contact
 
@@ -213,8 +267,8 @@ If you find this code useful, please consider citing our work:
 
 ```bibtex
 @article{wan2024sigma,
-  title={Sigma: Siamese Mamba Network for Multi-Modal Semantic Segmentation},
-  author={Wan, Zifu and Wang, Yuhao and Yong, Silong and Zhang, Pingping and Stepputtis, Simon and Sycara, Katia and Xie, Yaqi},
+  title={Stratified layering for soil profile: Dynamic short field Mamba network},
+  author={Zeng, Shaohua and Chen, Zhihao and Yong, Silong and Zhang, Pingping and Stepputtis, Simon and Sycara, Katia and Xie, Yaqi},
   journal={arXiv preprint arXiv:2404.04256},
   year={2024}
 }
