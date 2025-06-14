@@ -1,7 +1,7 @@
 <div align="center">
 <h1> Stratified layering for soil profile: Dynamic short field Mamba network </h1>
 
-[Shaohua Zeng]()<sup>1,2,†</sup>, [Zhihao Chen]()<sup>1,2,†</sup>, [Ruolan Zeng]()<sup>3</sup>, [Shuai Wang]()<sup>4</sup>, [Yang Wang]()<sup>5</sup>
+[Shaohua Zeng](https://orcid.org/0009-0001-4152-3807)<sup>1,2,†</sup>, [Zhihao Chen]()<sup>1,2,†</sup>, [Ruolan Zeng]()<sup>3</sup>, [Shuai Wang]()<sup>4</sup>, [Yang Wang]()<sup>5</sup>
 
 <sup>1</sup> College of Computer & Information Science, Chongqing Normal University, Chongqing 401331, China  
 <sup>2</sup> Chongqing Centre of Engineering Technology Research on Digital Agricultural & Service, Chongqing 401331, China  
@@ -9,10 +9,6 @@
 <sup>4</sup> Chongqing Master Station of Agricultural Technology Promotion, Chongqing 401121, China  
 <sup>5</sup> Jiangjin District Agricultural Technology Promotion Center, Chongqing 404799, China  
 <sup>†</sup> Equal contribution  
-
-[![arXiv](https://img.shields.io/badge/arXiv-2404.04256-b31b1b.svg)](https://arxiv.org/abs/2404.04256) 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
-[![X](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg)](https://x.com/_akhaliq/status/1777272323504025769)
 
 </div>
 
