@@ -19,7 +19,7 @@
 
 ## 👀Introduction
 
-This repository contains the code for our paper `Soma: Soil Mamba Network for Soil Profile Segmentation`. [[Paper](https://arxiv.org/abs/2404.04256)]
+This repository contains the code for our paper `Stratified layering for soil profile: Dynamic short field Mamba network`. [[Paper](https://arxiv.org/abs/2404.04256)]
 
 ![](figs/Soma.png)
 
