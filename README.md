@@ -23,46 +23,51 @@ This repository contains the code for our paper
 **Stratified layering for soil profile: Dynamic short field Mamba network**.  
 [[Paper](https://arxiv.org/abs/2404.04256)]
 
+---
+
 ### 📌 Technical Overview
 
-- **Technical implementation route**  
-  ![](figs/Fig.1.%20Technical%20implementation%20route.png)
+- **Technical pipeline**  
+  ![](figs/Fig.1.Technical_implementation_route.png)
 
-- **Soil profile preprocessing and vertical sub-image segmentation process**  
-  ![](figs/Fig.2.%20Soil%20profile%20preprocessing%20and%20vertical%20sub-image%20segmentation%20process.png)
+- **Soil preprocessing**  
+  ![](figs/Fig.2.Soil_profile_preprocessing_and_vertical_sub-image_segmentation_process.png)
 
 - **Baseline VM-UNet**  
-  ![](figs/Fig.3.%20VM-UNet%20network%20proposed%20by%20Ruan%20and%20Xiang%20(2024).png)
+  ![](figs/Fig.3.VM-UNet_network_proposed.png)
 
 - **Network structure: DSFM**  
-  ![](figs/Fig.4.%20Overall%20structure%20of%20DSFM.png)
+  ![](figs/Fig.4.Overall_structure_of_DSFM.png)
 
 - **Modules in DSFM:**  
   - Similarity Encoder  
-    ![](figs/Fig.5.%20Similarity%20Encoder%20of%20Short%20Field%20Module.png)  
+    ![](figs/Fig.5.Similarity_Encoder_of_Short_Field_Module.png)  
   - Dynamic Position Encoder  
-    ![](figs/Fig.6.%20Dynamic%20Position%20Encoder%20Module.png)
+    ![](figs/Fig.6.Dynamic_Position_Encoder_Module.png)
+
+---
 
 ### 📊 Performance and Comparison
 
 - **VM-UNet Accuracy Comparison**  
-  ![](figs/Fig.7.%20Accuracy%20comparison%20of%20VM-UNet%20across%20dataset%20of%20full-size%20soil%20profile%20and%20dataset%20of%20soil%20profile%20su....png)
+  ![](figs/Fig.7.Accuracy_comparison_of_VM-UNet_across_dataset_of_full-size_soil_profile_and_dataset_of_soil_profile_sub-images.png)
 
 - **DSFM Accuracy Across Sub-image Sizes**  
-  ![](figs/Fig.8.%20Accuracy%20comparison%20results%20of%20DSFM%20network%20under%20different%20soil%20profile%20sub-image%20sizes..png)
+  ![](figs/Fig.8.Accuracy_comparison_results_of_DSFM_network_under_different_soil_profile_sub-image_sizes.png)
 
 - **DSFM Performance Under Different Parameters**  
-  ![](figs/Fig.9.%20Accuracy%20variation%20curves%20of%20DSFM%20network%20for%20different%20values%20of%20short%20field%20parameter%20K..png)
+  ![](figs/Fig.9.Accuracy_variation_curves_of_DSFM_network_for_different_values_of_short_field_parameter_K.png)
 
 - **Segmentation Comparison with Baselines**  
-  ![](figs/Fig.10.%20Segmentation%20results%20comparing%20DSFM%20network%20with%20mainstream%20networks..png)
+  ![](figs/Fig.10.Segmentation_results_comparing_DSFM_network_with_mainstream_networks.png)
 
 - **Test Accuracy Curves**  
-  ![](figs/Fig.11.%20Test%20accuracy%20curves%20of%20DSFM%20network%20and%20mainstream%20segmentation%20networks.%20(a)%20OA.%20(b)%20mIoU..png)  
-  ![](figs/Fig.12.%20Test%20accuracy%20curves%20of%20DSFM%20network%20ablation%20experiments.%20(a)%20OA.%20(b)%20mIoU..png)
+  ![](figs/Fig.11.Test_accuracy_curves_of_DSFM_network_and_mainstream_segmentation_networks.png)  
+  ![](figs/Fig.12.Test_accuracy_curves_of_DSFM_network_ablation_experiments.png)
 
 - **Ablation Results**  
-  ![](figs/Fig.13.%20Image%20segmentation%20results%20of%20the%20ablation%20experiments..png)
+  ![](figs/Fig.13.Image_segmentation_results_of_the_ablation_experiments.png)
+
 
 
 ## 💡Environment
