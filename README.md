@@ -28,45 +28,45 @@ This repository contains the code for our paper
 ### 📌 Technical Overview
 
 - **Technical pipeline**  
-  ![](figs/Fig.1.Technical_implementation_route.png)
+  ![](fig/Fig.1.Technical_implementation_route.png)
 
 - **Soil preprocessing**  
-  ![](figs/Fig.2.Soil_profile_preprocessing_and_vertical_sub-image_segmentation_process.png)
+  ![](fig/Fig.2.Soil_profile_preprocessing_and_vertical_sub-image_segmentation_process.png)
 
 - **Baseline VM-UNet**  
-  ![](figs/Fig.3.VM-UNet_network_proposed.png)
+  ![](fig/Fig.3.VM-UNet_network_proposed.png)
 
 - **Network structure: DSFM**  
-  ![](figs/Fig.4.Overall_structure_of_DSFM.png)
+  ![](fig/Fig.4.Overall_structure_of_DSFM.png)
 
 - **Modules in DSFM:**  
   - Similarity Encoder  
-    ![](figs/Fig.5.Similarity_Encoder_of_Short_Field_Module.png)  
+    ![](fig/Fig.5.Similarity_Encoder_of_Short_Field_Module.png)  
   - Dynamic Position Encoder  
-    ![](figs/Fig.6.Dynamic_Position_Encoder_Module.png)
+    ![](fig/Fig.6.Dynamic_Position_Encoder_Module.png)
 
 ---
 
 ### 📊 Performance and Comparison
 
 - **VM-UNet Accuracy Comparison**  
-  ![](figs/Fig.7.Accuracy_comparison_of_VM-UNet_across_dataset_of_full-size_soil_profile_and_dataset_of_soil_profile_sub-images.png)
+  ![](fig/Fig.7.Accuracy_comparison_of_VM-UNet_across_dataset_of_full-size_soil_profile_and_dataset_of_soil_profile_sub-images.png)
 
 - **DSFM Accuracy Across Sub-image Sizes**  
-  ![](figs/Fig.8.Accuracy_comparison_results_of_DSFM_network_under_different_soil_profile_sub-image_sizes.png)
+  ![](fig/Fig.8.Accuracy_comparison_results_of_DSFM_network_under_different_soil_profile_sub-image_sizes.png)
 
 - **DSFM Performance Under Different Parameters**  
-  ![](figs/Fig.9.Accuracy_variation_curves_of_DSFM_network_for_different_values_of_short_field_parameter_K.png)
+  ![](fig/Fig.9.Accuracy_variation_curves_of_DSFM_network_for_different_values_of_short_field_parameter_K.png)
 
 - **Segmentation Comparison with Baselines**  
-  ![](figs/Fig.10.Segmentation_results_comparing_DSFM_network_with_mainstream_networks.png)
+  ![](fig/Fig.10.Segmentation_results_comparing_DSFM_network_with_mainstream_networks.png)
 
 - **Test Accuracy Curves**  
-  ![](figs/Fig.11.Test_accuracy_curves_of_DSFM_network_and_mainstream_segmentation_networks.png)  
-  ![](figs/Fig.12.Test_accuracy_curves_of_DSFM_network_ablation_experiments.png)
+  ![](fig/Fig.11.Test_accuracy_curves_of_DSFM_network_and_mainstream_segmentation_networks.png)  
+  ![](fig/Fig.12.Test_accuracy_curves_of_DSFM_network_ablation_experiments.png)
 
 - **Ablation Results**  
-  ![](figs/Fig.13.Image_segmentation_results_of_the_ablation_experiments.png)
+  ![](fig/Fig.13.Image_segmentation_results_of_the_ablation_experiments.png)
 
 
 
