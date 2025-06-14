@@ -1,4 +1,0 @@
-einops==0.7.0
-timm==0.9.12
-causal-conv1d>=1.1.0
-mamba-ssm
