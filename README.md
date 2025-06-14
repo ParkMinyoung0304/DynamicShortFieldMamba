@@ -84,8 +84,8 @@ We test our codebase with `PyTorch 1.13.1 + CUDA 11.7` as well as `PyTorch 2.2.1
 
 1. Create environment.
     ```shell
-    conda create -n soma python=3.9
-    conda activate soma
+    conda create -n DSFM python=3.9
+    conda activate DSFM
     ```
 
 2. Install all dependencies.
