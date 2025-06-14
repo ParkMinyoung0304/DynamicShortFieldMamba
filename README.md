@@ -21,7 +21,6 @@
 
 This repository contains the code for our paper  
 **Stratified layering for soil profile: Dynamic short field Mamba network**.  
-[[Paper](https://arxiv.org/abs/2404.04256)]
 
 ---
 
@@ -260,17 +259,4 @@ Our Mamba codes are adapted from [Mamba](https://github.com/state-spaces/mamba) 
 ## 📧Contact
 
 If you have any questions, please  contact at [Zhihao Chen](2023210516060@stu.cqnu.edu.cn).
-
-## 📌 BibTeX & Citation
-
-If you find this code useful, please consider citing our work:
-
-```bibtex
-@article{wan2024sigma,
-  title={Stratified layering for soil profile: Dynamic short field Mamba network},
-  author={Zeng, Shaohua and Chen, Zhihao and Yong, Silong and Zhang, Pingping and Stepputtis, Simon and Sycara, Katia and Xie, Yaqi},
-  journal={arXiv preprint arXiv:2404.04256},
-  year={2024}
-}
-```
 
