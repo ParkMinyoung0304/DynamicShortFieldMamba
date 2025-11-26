@@ -212,10 +212,11 @@ We provide our result on the Soil Profile datasets:
 | ResNeSt         | ResNeSt-101   | 58.04  | 48.96  | 34.15 | 149G  | 69.4M  | 37.0   |
 | Fast-SCNN       | Fast-SCNN     | 55.02  | 37.88  | 32.09 | 2G    | 1.4M   | 102.7  |
 | UTANet          | TA-MoSC       | 64.03  | 53.50  | 39.66 | 64.61G| 24.17M | 54.35  |
-| EGE-UNet        | EGE-UNet      | 69.53  | 62.08  | 48.75 | ** 0.29G** |**  0.05M **  | 96.65  |
+| EGE-UNet        | EGE-UNet      | 69.53  | 62.08  | 48.75 | **0.29G** |**0.05M**  | 96.65  |
 | Rolling-UNet    | Rolling-UNet  | 63.94  | 65.34  | 44.81 | 3.73G | 1.78M  | 51.50  |
 |-----------------|---------------|--------|--------|-------|-------|--------|--------|
-| Ours            | VMamba-T      | **78.99<sup>a</sup>** |** 69.04 ** | **60.22 ** | 22G   | 31.1M  |**  103.62**  |
+| Ours            | VMamba-T      | **78.99<sup>a</sup>** |**69.04** | **60.22** | 22G   | 31.1M  |**103.62**  |
+
 *a. The best experimental results are in bold.*
 
 ---
@@ -249,6 +250,7 @@ We provide our result on the Soil Profile datasets:
 | √       | √    | ×   | 76.53   | 55.57 | 21.50G | 31.14M | 108.17  |
 | √       | ×    | √   | 72.92   | 50.61 | 21.50G | 31.14M | 108.25  |
 | √       | √    | √   | **78.99<sup>a</sup>**  | **60.22** | 21.50G | 31.14M | 103.62  |
+
 *a. The best experimental results are in bold.*
 
 ## 🙏Acknowledgements
@@ -258,6 +260,7 @@ Our Mamba codes are adapted from [Mamba](https://github.com/state-spaces/mamba) 
 ## 📧Contact
 
 If you have any questions, please  contact at [Zhihao Chen](2023210516060@stu.cqnu.edu.cn).
+
 
 
 
