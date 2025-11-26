@@ -1,7 +1,6 @@
 <div align="center">
 <h1> Stratified layering for soil profile: Dynamic short field Mamba network </h1>
 
-<!--
 [Shaohua Zeng](https://orcid.org/0009-0001-4152-3807)<sup>1,2,†</sup>, [Zhihao Chen]()<sup>1,2,†</sup>, [Ruolan Zeng]()<sup>3</sup>, [Shuai Wang]()<sup>4</sup>, [Yang Wang]()<sup>5</sup>
 
 <sup>1</sup> College of Computer & Information Science, Chongqing Normal University, Chongqing 401331, China  
@@ -10,7 +9,6 @@
 <sup>4</sup> Chongqing Master Station of Agricultural Technology Promotion, Chongqing 401121, China  
 <sup>5</sup> Jiangjin District Agricultural Technology Promotion Center, Chongqing 404799, China  
 <sup>†</sup> Equal contribution  
--->
 
 </div>
 
@@ -18,7 +16,7 @@
 ## 👀Introduction
 
 This repository contains the code for our paper  
-**Stratified layering for soil profile: Dynamic short field Mamba network**.  
+**Stratified layering for soil profile: Dynamic short field Mamba network**. [[Paper](https://doi.org/10.1016/j.compag.2025.111212)]
 
 ---
 
@@ -257,4 +255,5 @@ Our Mamba codes are adapted from [Mamba](https://github.com/state-spaces/mamba) 
 ## 📧Contact
 
 If you have any questions, please  contact at [Zhihao Chen](2023210516060@stu.cqnu.edu.cn).
+
 
