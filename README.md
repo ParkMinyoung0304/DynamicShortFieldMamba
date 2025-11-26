@@ -201,37 +201,41 @@ We provide our result on the Soil Profile datasets:
 
 ### Table 1. Comparison table of mainstream algorithms
 
-| Method           | Backbone       | OA (%) | mAcc (%) | mIoU (%) |
-|------------------|----------------|--------|----------|----------|
-| Swin-Transformer | Swin-T         | 55.36  | 45.72    | 32.52    |
-| Twins            | Twins-SVT-S    | 72.26  | 65.63    | 51.73    |
-| ViT              | ViT-B          | 46.64  | 40.64    | 26.99    |
-| ConvNeXt         | ConvNeXt-T     | 59.78  | 50.85    | 36.82    |
-| DeepLabV3        | ResNet50       | 43.21  | 34.16    | 20.61    |
-| SegFormer        | MiT-B0         | 70.34  | 64.54    | 50.33    |
-| ResNeSt          | ResNeSt-101    | 58.04  | 48.96    | 34.15    |
-| Fast-SCNN        | Fast-SCNN      | 55.02  | 37.88    | 32.09    |
-| **Ours**         | VMamba-T       | **78.99<sup>a</sup>** | **69.04** | **60.22** |
-
+| Method          | Backbone      | OA(%)  | mAcc(%) | mIoU(%)  | FLOPs | Param. | FPS    |
+|-----------------|---------------|--------|--------|-------|-------|--------|--------|
+| Swin-Transformer | Swin-T        | 55.36  | 45.72  | 32.52 | 133G  | 59.0M  | 37.6   |
+| Twins           | Twins-SVT-S   | 72.26  | 65.63  | 51.73 | 128G  | 53.2M  | 37.0   |
+| ViT             | ViT-B         | 46.64  | 40.64  | 26.99 | 245G  | 142.0M | 28.9   |
+| ConvNeXt        | ConvNeXt-T    | 59.78  | 50.85  | 36.82 | 132G  | 59.3M  | 37.2   |
+| DeepLabV3       | ResNet50      | 43.21  | 34.16  | 20.61 | 152G  | 65.8M  | 41.9   |
+| SegFormer       | MiT-B0        | 70.34  | 64.54  | 50.33 | 9G    | 3.8M   | 51.3   |
+| ResNeSt         | ResNeSt-101   | 58.04  | 48.96  | 34.15 | 149G  | 69.4M  | 37.0   |
+| Fast-SCNN       | Fast-SCNN     | 55.02  | 37.88  | 32.09 | 2G    | 1.4M   | 102.7  |
+| UTANet          | TA-MoSC       | 64.03  | 53.50  | 39.66 | 64.61G| 24.17M | 54.35  |
+| EGE-UNet        | EGE-UNet      | 69.53  | 62.08  | 48.75 | ** 0.29G** |**  0.05M **  | 96.65  |
+| Rolling-UNet    | Rolling-UNet  | 63.94  | 65.34  | 44.81 | 3.73G | 1.78M  | 51.50  |
+|-----------------|---------------|--------|--------|-------|-------|--------|--------|
+| Ours            | VMamba-T      | **78.99<sup>a</sup>** |** 69.04 ** | **60.22 ** | 22G   | 31.1M  |**  103.62**  |
 *a. The best experimental results are in bold.*
 
 ---
 
-### Table 2. Accuracy and IoU comparison of DSFM and mainstream networks across soil layers
+### Table 2. IoU comparison of DSFM and mainstream networks across soil layers
 
-| Method           | Layer 1      |Layer 1 | Layer 2       |Layer 2        |Layer 3       |Layer 3        | Layer 4       |Layer 4        | Layer 5       |Layer 5        |
-|------------------|--------------|--------|--------------|--------|--------------|--------|--------------|--------|--------------|--------|
-|                  | Acc(%)         | IoU(%)    | Acc(%)            | IoU(%)    | Acc(%)            | IoU(%)    | Acc(%)         | IoU(%)    | Acc(%)         | IoU(%)    |
-| Swin-Transformer | 40.4         | 38.9     | 55.6         | 44.1     | 68.7         | 40.8     | 61.6         | 36.6     | 2.1          | 2.1    |
-| Twins            | **88.6<sup>1</sup>**     | **72.7<sup>2</sup>** | 71.2         | **56.9<sup>2</sup>** | 68.9         | **53.6<sup>2</sup>** | **77.8<sup>1</sup>**     | **57.8<sup>2</sup>** | **21.3<sup>2</sup>**     | **21.1<sup>2</sup>** |
-| ViT              | 51.9         | 43.3     | 29.5         | 23.8     | 62.7         | 30.9     | 52.4         | 31.4     | 6.6          | 5.5    |
-| ConvNeXt         | 64.9         | 53.2     | 59.0         | 42.8     | 62.8         | 41.0     | 62.2         | 42.5     | 5.1          | 4.2    |
-| DeepLabV3        | 50.3         | 42.9     | 23.7         | 19.3     | **89.5<sup>1</sup>**     | 34.2     | 5.9          | 5.7      | 0.9          | 0.9    |
-| SegFormer        | 74.8         | 67.1     | 72.7         | 55.3     | 66.2         | 50.3     | **75.6<sup>2</sup>**     | 53.3     | **33.3<sup>1</sup>**     | **25.6<sup>1</sup>** |
-| ResNeSt-101      | 84.1         | 61.7     | 37.8         | 33.2     | **88.1<sup>2</sup>**     | 43.4     | 14.9         | 13.5     | 19.8         | 14.1   |
-| Fast-SCNN        | 47.6         | 42.8     | **82.9<sup>1</sup>**     | 42.5     | 44.7         | 27.4     | 13.8         | 12.2     | 0.0          | 0.0    |
-| **Ours**         | **86.0<sup>2</sup>**     | **78.2<sup>1</sup>** | **81.1<sup>2</sup>**     | **71.7<sup>1</sup>** | 81.7         | **68.2<sup>1</sup>** | 73.8         | **66.1<sup>1</sup>** | 22.6         | 16.9   |
-
+| Method           | Layer 1 | Layer 2 | Layer 3 | Layer 4 | Layer 5 |
+|------------------|---------|---------|---------|---------|---------|
+| Swin-Transformer | 38.9    | 44.1    | 40.8    | 36.6    | 2.1     |
+| Twins            | 72.7    | 56.9    | 53.6    | 57.8    | 21.1    |
+| ViT              | 43.3    | 23.8    | 30.9    | 31.4    | 5.5     |
+| ConvNeXt         | 53.2    | 42.8    | 41.0    | 42.5    | 4.2     |
+| DeepLabV3        | 42.9    | 19.3    | 34.2    | 5.7     | 0.9     |
+| SegFormer        | 67.1    | 55.3    | 50.3    | 53.3    | **25.6**    |
+| ResNeSt-101      | 61.7    | 33.2    | 43.4    | 13.5    | 14.1    |
+| Fast-SCNN        | 42.8    | 42.5    | 27.4    | 12.2    | 0.0     |
+| UTANet           | 67.5    | 53.4    | 40.9    | 36.5    | 0.0     |
+| EGE-UNet         | 67.6    | 57.1    | 50.5    | 48.2    | 20.39   |
+| Rolling-UNet     | 64.9    | 54.0    | 36.2    | 41.8    | 27.29   |
+| Ours             | **78.2<sup>a</sup>**   | **71.7**    | **68.2**    | **66.1**    | 16.9    |
 
 *a. The best and second-best results for each layer are highlighted in 1 and 2.*
 
@@ -239,13 +243,12 @@ We provide our result on the Soil Profile datasets:
 
 ### Table 3. Comparison table of the ablation experiments
 
-| VM-UNet | SESF | DPE | OA (%) | mIoU (%) |
-|--------|------|-----|--------|----------|
-| ✓      | ✗    | ✗   | 72.01  | 49.76    |
-| ✓      | ✓    | ✗   | 76.53  | 55.57    |
-| ✓      | ✗    | ✓   | 72.92  | 50.61    |
-| ✓      | ✓    | ✓   | **78.99<sup>a</sup>** | **60.22** |
-
+| VM-UNet | SESF | DPE | OA      | mIoU  | FLOPs  | Param. | FPS     |
+|---------|------|-----|---------|-------|--------|--------|---------|
+| √       | ×    | ×   | 72.01   | 49.76 | 21.50G | 31.14M | **115.21**  |
+| √       | √    | ×   | 76.53   | 55.57 | 21.50G | 31.14M | 108.17  |
+| √       | ×    | √   | 72.92   | 50.61 | 21.50G | 31.14M | 108.25  |
+| √       | √    | √   | **78.99<sup>a</sup>**  | **60.22** | 21.50G | 31.14M | 103.62  |
 *a. The best experimental results are in bold.*
 
 ## 🙏Acknowledgements
@@ -255,5 +258,6 @@ Our Mamba codes are adapted from [Mamba](https://github.com/state-spaces/mamba) 
 ## 📧Contact
 
 If you have any questions, please  contact at [Zhihao Chen](2023210516060@stu.cqnu.edu.cn).
+
 
 
